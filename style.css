@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+.songs-wrapper {
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    max-width: 550px;
+}
+.button {
+    border: none;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+.button:hover {
+    background-color: #ccc;
+}
+.add {
+    background-color: #e0e0e0;
+}
+.like {
+    background-color: #ff9fa4;
+}
+.delete {
+    background-color: #a6e2f5;
+}
+.input-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.count-title span {
+    color: #646464;
+    font-weight: bold;
+}
+.like-icon {
+    height: 100%;
+    margin-right: 10px;
+    width: 30px;
+    margin-left: 10px;
+}
+.hidden {
+    visibility: hidden;
+}
+.btn-box {
+
+}
+.d-none {
+    display: none;
+}

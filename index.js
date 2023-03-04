@@ -48,6 +48,7 @@ function createLi(song) {
     const likeIcon = addImg();
     imgBox.prepend(likeIcon);
     const btnBox = document.createElement('div');
+    btnBox.classList.add('btn-box');
     li.append(btnBox);
     btnBox.prepend(createButton('Delete', 'delete', deleteSong));
     if (song.isLiked) {

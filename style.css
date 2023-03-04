@@ -6,6 +6,8 @@
     display: flex;
     align-items: center;
     height: 40px;
+    justify-content: space-between;
+    margin-right: 15px;
 }
 .songs-wrapper {
     margin-top: 5px;
@@ -48,9 +50,17 @@
 .hidden {
     visibility: hidden;
 }
-.btn-box {
 
-}
 .d-none {
     display: none;
+}
+
+.img-box {
+    display: flex;
+    align-items: center;
+}
+
+.songs{
+    padding: 0;
+    margin-left: 5px;
 }

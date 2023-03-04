@@ -40,13 +40,14 @@ function addImg() {
 function createLi(song) {
     const li = document.createElement('li');
     li.classList.add('item');
-    li.textContent = song.name;
+    //li.textContent = song.name;
     const imgBox = document.createElement('div');
+    imgBox.textContent = song.name
     li.prepend(imgBox);
+    imgBox.classList.add('img-box')
     const likeIcon = addImg();
-    imgBox.append(likeIcon);
+    imgBox.prepend(likeIcon);
     const btnBox = document.createElement('div');
-    btnBox.classList.add('btn-box');
     li.append(btnBox);
     btnBox.prepend(createButton('Delete', 'delete', deleteSong));
     if (song.isLiked) {

@@ -40,7 +40,6 @@ function addImg() {
 function createLi(song) {
     const li = document.createElement('li');
     li.classList.add('item');
-    //li.textContent = song.name;
     const imgBox = document.createElement('div');
     imgBox.textContent = song.name
     li.prepend(imgBox);

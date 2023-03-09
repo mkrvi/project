@@ -16,9 +16,9 @@ let songs = [
 window.addEventListener('load', function () {
     for (let song of songs) {
         createLi(song);
-        addNewSong();
-        countAllSongs();
     }
+    addNewSong();
+    countAllSongs();
 })
 
 function createButton(name, className, clickEvent) {
@@ -41,7 +41,10 @@ function createLi(song) {
     const li = document.createElement('li');
     li.classList.add('item');
     const imgBox = document.createElement('div');
-    imgBox.textContent = song.name
+    const span = document.createElement('span')
+    span.textContent = song.name
+    span.classList.add('span')
+    imgBox.prepend(span)
     li.prepend(imgBox);
     imgBox.classList.add('img-box')
     const likeIcon = addImg();
@@ -68,8 +71,15 @@ function addNewSong() {
     addSong.addEventListener('click', function () {
         const songInput = document.querySelector('.input-box');
         const newSong = {name: songInput.value, isLiked: false};
+        const songsArray = document.querySelectorAll('.span');
+        const songsFilteredArray = [...songsArray].filter(
+            (song) => song.textContent.toLowerCase() === newSong.name.toLowerCase()
+        );
         if (songInput.value.length < 3) {
             warning.textContent = 'Please enter song name with 3 or more symbols'
+            warning.classList.remove('d-none')
+        } else if (songsFilteredArray.length) {
+            warning.textContent = 'Song has already been added'
             warning.classList.remove('d-none')
         } else {
             createLi(newSong);
@@ -100,10 +110,11 @@ function countAllSongs() {
 }
 
 function deleteSong(event) {
-    const liToDel = event.target.closest('li')
+    const liToDel = event.target.closest('li');
+    const text = liToDel.querySelector('.img-box').textContent
     const index = Array.from(liToDel.parentNode.childNodes).indexOf(liToDel);
     songs = songs.slice(0, index).concat(songs.slice(index + 1));
-    const confirmation = confirm(`Are you sure delete the song ${liToDel.textContent}?`);
+    const confirmation = confirm(`Are you sure delete the song ${text}?`);
     if (confirmation) {
         liToDel.remove();
     }
